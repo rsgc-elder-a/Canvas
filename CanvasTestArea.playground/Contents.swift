@@ -31,23 +31,25 @@ canvas.drawAxes()
 let f = 100
 let angle = Degrees(60)
 let word = "F-F++F-F++F-F++F-F++F-F++F-F"
-let smallWord = "F++F++F"
 var xVal = f //starting values
 var yVal = f
-for i in smallWord.characters {
+
+var first = true;
+for i in word.characters {
     //must use xVal and yVal to be actual values
     if(i == "F"){
+        if first == true {
         canvas.translate(byX: xVal, byY: yVal)
+        }
         canvas.drawLine(fromX: 0, fromY: 0, toX: f, toY: 0)
-        xVal = xVal + f
-        canvas.translate(byX: xVal+f, byY: yVal)
+        canvas.translate(byX: f, byY: 0)
 
     }
-    
     
     if(i == "-"){
         //canvas.translate(byX: xVal, byY: yVal)
         canvas.rotate(by: -angle)
+        
         //canvas.translate(byX: -xVal, byY: -yVal)
         
     }
@@ -55,19 +57,14 @@ for i in smallWord.characters {
     if(i == "+"){
         //canvas.translate(byX: xVal, byY: yVal)
         canvas.rotate(by: angle)
+        
         //canvas.translate(byX: -xVal, byY: -yVal)
         
         
     }
- 
+ first = false
 }
 
-/*
-canvas.drawLine(fromX: f, fromY: f, toX: f+100, toY: f)
-canvas.translate(byX: f+100, byY: f)
-canvas.rotate(by: -angle)
-canvas.drawLine(fromX: 0, fromY: 0, toX: f, toY: 0)
-*/
 /*:
  
  ## To see output
