@@ -18,7 +18,7 @@ import Cocoa
 import PlaygroundSupport
 
 // Create a new canvas
-let canvas = Canvas(width: 300, height: 500)
+let canvas = Canvas(width: 500, height: 500)
 
 // View the current state of the canvas
 canvas
@@ -27,8 +27,17 @@ canvas
 canvas.drawAxes()
 
 // Add code below...
+let f = 100
+let angle = Degrees(60)
+let word = "F-F++F-F++F-F++F-F++F-F++F-F"
 
 
+
+/*
+canvas.drawLine(fromX: f, fromY: f, toX: f+100, toY: f)
+canvas.rotate(by: angle)
+canvas.drawLine(fromX: f+100, fromY: f, toX: f+200, toY: f+100)
+*/
 /*:
  
  ## To see output
