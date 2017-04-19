@@ -27,6 +27,7 @@ canvas
 canvas.drawAxes()
 
 // Add code below...
+
 let f = 100
 let angle = Degrees(60)
 let word = "F-F++F-F++F-F++F-F++F-F++F-F"
@@ -42,6 +43,7 @@ for i in smallWord.characters {
         canvas.translate(byX: xVal+f, byY: yVal)
 
     }
+    
     
     if(i == "-"){
         //canvas.translate(byX: xVal, byY: yVal)
