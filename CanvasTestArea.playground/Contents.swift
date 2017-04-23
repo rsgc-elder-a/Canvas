@@ -41,8 +41,12 @@ let rule = "F-F++F-"
 var xVal = f //starting values
 var yVal = f
 
-var first = true;
+let system = LindenMayerSystem(legnth: 300, reduction: 3, x: 100, y: 100, direction: 0, angle: 60, axiom: "F++F++F", rule: "F-F++F-F", generations: 2)
 
+//var first = true;
+
+
+/*
 func drawDo(input: String) {
     for i in input.characters {
         //must use xVal and yVal to be actual values
@@ -100,6 +104,7 @@ func createLay(base: String, rule: String, iterations: Int){
 }
 
 createLay(base: base, rule: rule, iterations: 0);
+*/
 /*:
  
  ## To see output
