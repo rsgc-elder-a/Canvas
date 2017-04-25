@@ -6,16 +6,15 @@ public class LindenMayerSystem  {
     //properties (avaible everywhere inside the class)
     
     // Set up required information
-    var initialLength : Int             // initial line segment length
-    
-    var reduction : Int                   // reduction factor
-    var x : Int                       // initial horizontal position of turtle
-    var y : Int                      // initial vertical position of turtle
-    var direction : Int                   // initial direction turtle faces (degrees)
-    var angle : Degrees             // rotation amount for turtle (degrees)
-    var axiom : String
-    var rule : String
-    var n : Int                  // number of times the production rule is applied
+    public var initialLength : Int           // initial line segment length
+    public var reduction : Int               // reduction factor
+    public var x : Int                       // initial horizontal position of turtle
+    public var y : Int                       // initial vertical position of turtle
+    public var direction : Int               // initial direction turtle faces (degrees)
+    public var angle : Degrees               // rotation amount for turtle (degrees)
+    public var axiom : String 
+    public var rule : String
+    public var n : Int                  // number of times the production rule is applied
     
     var currentLength : Int   // current line segment length
     var word : String            // word begins as equal to the axiom
@@ -36,16 +35,11 @@ public class LindenMayerSystem  {
         self.n = generations
         self.word = axiom
         
-        // Create a new canvas
-        let canvas = Canvas(width: 500, height: 500)
+        makeWord()
         
-        //for reducing the size
-        //currentLegnth = Int(Double(initialLegnth) / pow(Double(reduction), Double(n)))
-        
-        // Draw the axes
-        canvas.drawAxes()
-
-        
+    }
+    //methods (all in intiailizer irrelivant)
+    func makeWord(){
         // intial test
         if n > 0 {
             // Create n generaitons
@@ -54,7 +48,7 @@ public class LindenMayerSystem  {
                 var newWord = ""
                 // Inspect each character of existing word
                 for character in word.characters {
-                 //these blocks add in values
+                    //these blocks add in values
                     if character == "F" {
                         // apply production rule, replace "old" F with new string
                         newWord.append(rule)
@@ -70,43 +64,7 @@ public class LindenMayerSystem  {
             }
         }
         
-        // Change the line length
-        currentLength = Int( Double(initialLength) / pow(Double(reduction), Double(n)) )
-        
-        // Render the word
-        canvas.saveState()
-        canvas.translate(byX: x, byY: y) // Move turtle to starting point
-        for character in word.characters {
-            
-            
-            // Interpret each character of the word
-            switch character {
-                
-                
-            case "F":
-                // draws line striat ahead
-                canvas.drawLine(fromX: 0, fromY: 0, toX: currentLength, toY: 0)
-                canvas.translate(byX: currentLength, byY: 0)
-                
-                
-            case "+":
-                //rotates positivly
-                canvas.rotate(by: angle)
-                
-                
-            case "-":
-                //roatates negitivy
-                canvas.rotate(by: angle * -1)
-                
-                
-            default:
-                
-                break
-            }
-            
-        }
-        canvas.restoreState()
-        
+        print("Here is the word: \(word)") //correct word
     }
-    //methods (all in intiailizer irrelivant)
+
 }

@@ -18,7 +18,7 @@ import Cocoa
 import PlaygroundSupport
 
 // Create a new canvas
-let canvas = Canvas(width: 500, height: 500)
+let canvas = EnhancedCanvas(width: 600, height: 600)
 
 //for reducing the size
 //currentLegnth = Int(Double(initialLegnth) / pow(Double(reduction), Double(n)))
@@ -43,8 +43,63 @@ var yVal = f
 
 let system = LindenMayerSystem(legnth: 300, reduction: 3, x: 100, y: 100, direction: 0, angle: 60, axiom: "F++F++F", rule: "F-F++F-F", generations: 2)
 
-//var first = true;
+let island = LindenMayerSystem(legnth: 100, reduction: 3, x: 100, y: 100, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "F-F+F+FF-F-F+F", generations: 1)
 
+
+
+canvas.render(systemGive: island)
+//print(system)
+
+//var first = true;
+/*
+ 
+ // Create a new canvas
+ //let canvas = Canvas(width: 500, height: 500)
+ 
+ //for reducing the size
+ //currentLegnth = Int(Double(initialLegnth) / pow(Double(reduction), Double(n)))
+ 
+ // Draw the axes
+ 
+ //canvas.drawAxes()
+ // Change the line length
+ currentLength = Int( Double(initialLength) / pow(Double(reduction), Double(n)) )
+ 
+ // Render the word
+ canvas.saveState()
+ canvas.translate(byX: x, byY: y) // Move turtle to starting point
+ for character in word.characters {
+ 
+ 
+ // Interpret each character of the word
+ switch character {
+ 
+ 
+ case "F":
+ // draws line striat ahead
+ canvas.drawLine(fromX: 0, fromY: 0, toX: currentLength, toY: 0)
+ canvas.translate(byX: currentLength, byY: 0)
+ 
+ 
+ case "+":
+ //rotates positivly
+ canvas.rotate(by: angle)
+ 
+ 
+ case "-":
+ //roatates negitivy
+ canvas.rotate(by: angle * -1)
+ 
+ 
+ default:
+ 
+ break
+ }
+ 
+ }
+ canvas.restoreState()/
+ 
+ */
 
 /*
 func drawDo(input: String) {
@@ -56,9 +111,9 @@ func drawDo(input: String) {
             }
             canvas.drawLine(fromX: 0, fromY: 0, toX: f, toY: 0)
             canvas.translate(byX: f, byY: 0)
-            
+ 
         }
-        
+ 
         if(i == "-"){
             //canvas.translate(byX: xVal, byY: yVal)
             if first == true {
