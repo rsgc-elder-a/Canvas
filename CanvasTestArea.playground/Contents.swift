@@ -43,11 +43,16 @@ var yVal = f
 
 let system = LindenMayerSystem(legnth: 300, reduction: 3, x: 100, y: 100, direction: 0, angle: 60, axiom: "F++F++F", rule: "F-F++F-F", generations: 2)
 
-let island = LindenMayerSystem(legnth: 100, reduction: 3, x: 100, y: 100, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "F-F+F+FF-F-F+F", generations: 1)
+let island = LindenMayerSystem(legnth: 100, reduction: 3, x: 150, y: 550, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "F-F+F+FF-F-F+F", generations: 3)
 
+let koch2 = LindenMayerSystem(legnth: 200, reduction: 3, x: 400, y: 400, direction: 0, angle: 90, axiom: "-F", rule: "F+F-F-F+F", generations: 3)
 
+let koch1 = LindenMayerSystem(legnth: 200, reduction: 3, x: 270, y: 320, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "FF-F-F-F-F-F+F ", generations: 3)
 
+canvas.render(systemGive: koch1)
+canvas.render(systemGive: koch2)
 canvas.render(systemGive: island)
+//canvas.render(systemGive: koch1)
 //print(system)
 
 //var first = true;
