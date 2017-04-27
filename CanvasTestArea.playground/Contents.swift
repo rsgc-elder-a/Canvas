@@ -29,142 +29,22 @@ canvas
 // Draw the axes
 canvas.drawAxes()
 
-// Add code below...
 
-let f = 100
-let angle = Degrees(60)
-//let word = "F-F++F-F++F-F++F-F++F-F++F-F"
-//let word = "--FF+F+FF+F+FF"
-//let word = "F-F++F-F-F-F+F-F++F-F++F-F-F-F++F"
-let base = "F++F++F"
-let rule = "F-F++F-"
-var xVal = f //starting values
-var yVal = f
+let triangle = LindenMayerSystem(legnth: 300, reduction: 2, x: 100, y: 100, direction: 0, angle: 120, axiom: "F+F+F", rule: "F+F-F-F+F", generations: 6, hue : 220.0, saturation: 100.0, brightness :  100.0)
 
-let system = LindenMayerSystem(legnth: 300, reduction: 3, x: 100, y: 100, direction: 0, angle: 60, axiom: "F++F++F", rule: "F-F++F-F", generations: 2)
+let island = LindenMayerSystem(legnth: 100, reduction: 3, x: 150, y: 550, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "F-F+F+FF-F-F+F", generations: 3, hue : 200.0, saturation: 100.0, brightness :  100.0)
 
-let island = LindenMayerSystem(legnth: 100, reduction: 3, x: 150, y: 550, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "F-F+F+FF-F-F+F", generations: 3)
+let koch2 = LindenMayerSystem(legnth: 200, reduction: 3, x: 400, y: 400, direction: 0, angle: 90, axiom: "-F", rule: "F+F-F-F+F", generations: 3, hue : 300.0, saturation: 100.0, brightness :  100.0)
 
-let koch2 = LindenMayerSystem(legnth: 200, reduction: 3, x: 400, y: 400, direction: 0, angle: 90, axiom: "-F", rule: "F+F-F-F+F", generations: 3)
+let koch1 = LindenMayerSystem(legnth: 200, reduction: 3, x: 270, y: 320, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "FF-F-F-F-F-F+F ", generations: 3, hue : 0, saturation: 100.0, brightness :  100.0)
 
-let koch1 = LindenMayerSystem(legnth: 200, reduction: 3, x: 270, y: 320, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "FF-F-F-F-F-F+F ", generations: 3)
-
+canvas.render(systemGive: triangle)
+/*
 canvas.render(systemGive: koch1)
 canvas.render(systemGive: koch2)
 canvas.render(systemGive: island)
-//canvas.render(systemGive: koch1)
-//print(system)
-
-//var first = true;
-/*
- 
- // Create a new canvas
- //let canvas = Canvas(width: 500, height: 500)
- 
- //for reducing the size
- //currentLegnth = Int(Double(initialLegnth) / pow(Double(reduction), Double(n)))
- 
- // Draw the axes
- 
- //canvas.drawAxes()
- // Change the line length
- currentLength = Int( Double(initialLength) / pow(Double(reduction), Double(n)) )
- 
- // Render the word
- canvas.saveState()
- canvas.translate(byX: x, byY: y) // Move turtle to starting point
- for character in word.characters {
- 
- 
- // Interpret each character of the word
- switch character {
- 
- 
- case "F":
- // draws line striat ahead
- canvas.drawLine(fromX: 0, fromY: 0, toX: currentLength, toY: 0)
- canvas.translate(byX: currentLength, byY: 0)
- 
- 
- case "+":
- //rotates positivly
- canvas.rotate(by: angle)
- 
- 
- case "-":
- //roatates negitivy
- canvas.rotate(by: angle * -1)
- 
- 
- default:
- 
- break
- }
- 
- }
- canvas.restoreState()/
- 
- */
-
-/*
-func drawDo(input: String) {
-    for i in input.characters {
-        //must use xVal and yVal to be actual values
-        if(i == "F"){
-            if first == true {
-                canvas.translate(byX: xVal, byY: yVal)
-            }
-            canvas.drawLine(fromX: 0, fromY: 0, toX: f, toY: 0)
-            canvas.translate(byX: f, byY: 0)
- 
-        }
- 
-        if(i == "-"){
-            //canvas.translate(byX: xVal, byY: yVal)
-            if first == true {
-                canvas.translate(byX: xVal, byY: yVal)
-            }
-            canvas.rotate(by: -angle)
-            
-            //canvas.translate(byX: -xVal, byY: -yVal)
-            
-        }
-        
-        if(i == "+"){
-            //canvas.translate(byX: xVal, byY: yVal)
-            if first == true {
-                canvas.translate(byX: xVal, byY: yVal)
-            }
-            canvas.rotate(by: angle)
-            
-            //canvas.translate(byX: -xVal, byY: -yVal)
-            
-            
-        }
-        first = false
-    }
-}
-
-func createLay(base: String, rule: String, iterations: Int){
-    var newString = base
-    for i in 0...iterations{
-       
-        for charicter in newString.characters {
-            if charicter == "F" {
-                
-                newString.append(rule)
-                
-            } else {
-                newString.append(charicter)
-            }
-        }
-        
-    }
-    print(newString);
-}
-
-createLay(base: base, rule: rule, iterations: 0);
 */
+
 /*:
  
  ## To see output

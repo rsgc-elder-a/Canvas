@@ -19,10 +19,13 @@ public class LindenMayerSystem  {
     var currentLength : Int   // current line segment length
     var word : String            // word begins as equal to the axiom
     
+    var hue : Float
+    var saturation : Float
+    var brightness : Float
     
     //initializer(S)(runs once at start)
     
-    public init(legnth : Int, reduction : Int, x: Int, y: Int, direction : Int, angle: Degrees, axiom : String, rule:String, generations: Int){
+    public init(legnth : Int, reduction : Int, x: Int, y: Int, direction : Int, angle: Degrees, axiom : String, rule:String, generations: Int, hue : Float, saturation : Float, brightness: Float){
         initialLength = legnth
         currentLength = initialLength
         self.reduction = reduction
@@ -34,6 +37,10 @@ public class LindenMayerSystem  {
         self.rule = rule
         self.n = generations
         self.word = axiom
+        self.hue = hue
+        self.saturation = saturation
+        self.brightness = brightness
+        
         
         makeWord()
         
