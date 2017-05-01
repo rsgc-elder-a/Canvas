@@ -12,92 +12,40 @@ class Sketch : NSObject {
     
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
     //       Therefore, the line immediately below must always be present.
-    let canvas : Canvas
+    // Create a new canvas
+    //let canvas = EnhancedCanvas(width: 600, height: 600)
     
-    // Declare constants
-    let north = 0
-    let northEast = 1
-    let east = 2
-    let southEast = 3
-    let south = 4
-    let southWest = 5
-    let west = 6
-    let northWest = 7
+    let canvas : EnhancedCanvas
     
-    // Set the step size (travel distance per iteration)
-    let stepSize = 5
+    //for reducing the size
+    //currentLegnth = Int(Double(initialLegnth) / pow(Double(reduction), Double(n)))
     
-    // Set the pixel size
-    let diameter = 7
     
-    // Generate a starting position
-    var x = 0
-    var y = 0
+    let triangle = LindenMayerSystem(legnth: 300, reduction: 2, x: 100, y: 350, direction: 0, angle: 120, axiom: "F+F+F", rule: "F+F-F-F+F", generations: 3, hue : 220.0, saturation: 100.0, brightness :  100.0)
+    
+    let koch2 = LindenMayerSystem(legnth: 200, reduction: 3, x: 400, y: 400, direction: 0, angle: 90, axiom: "-F", rule: "F+F-F-F+F", generations: 3, hue : 300.0, saturation: 100.0, brightness :  100.0)
+    
+    let koch1 = LindenMayerSystem(legnth: 200, reduction: 3, x: 270, y: 320, direction: 0, angle: 90, axiom: "F-F-F-F", rule: "FF-F-F-F-F-F+F ", generations: 3, hue : 0, saturation: 100.0, brightness :  100.0)
     
     // This runs once, equivalent to setup() in Processing
     override init() {
         
         // Create canvas object – specify size
-        canvas = Canvas(width: 500, height: 300)
+        canvas = EnhancedCanvas(width: 600, height: 600)
         
         // The frame rate can be adjusted; the default is 60 fps
-        canvas.framesPerSecond = 60
+        canvas.framesPerSecond = 1
         
-        // Set starting position
-        x = random(from: 50, toButNotIncluding: canvas.width - 50)
-        y = random(from: 50, toButNotIncluding: canvas.height - 50)
-        
-        // No borders
-        canvas.drawShapesWithBorders = false
+        // Translate up to middle of canvas
+//        canvas.translate(byX: 0, byY: canvas.height / 2)
         
     }
     
     // Runs repeatedly, equivalent to draw() in Processing
     func draw() {
-        
-        // Generate a random direction
-        var direction = random(from: 0, toButNotIncluding: 8)
-        
-        // Reverse direction if edge reached
-        if x + stepSize > canvas.width {
-            direction = west
-        }
-        if x - stepSize < 0 {
-            direction = east
-        }
-        if y + stepSize > canvas.height {
-            direction = south
-        }
-        if y - stepSize < 0 {
-            direction = north
-        }
-        
-        // Change position based on direction and step size
-        if direction == north {
-            y = y + stepSize
-        } else if direction == northEast {
-            x = x + stepSize
-            y = y + stepSize
-        } else if direction == east {
-            x = x + stepSize
-        } else if direction == southEast {
-            x = x + stepSize
-            y = y - stepSize
-        } else if direction == south {
-            y = y - stepSize
-        } else if direction == southWest {
-            x = x - stepSize
-            y = y - stepSize
-        } else if direction == west {
-            x = x - stepSize
-        } else if direction == northWest {
-            x = x - stepSize
-            y = y + stepSize
-        }
-        
-        // Draw the agent in it's new position
-        canvas.fillColor = Color(hue: 0, saturation: 0, brightness: 0, alpha: 25)
-        canvas.drawEllipse(centreX: x, centreY: y, width: diameter, height: diameter)
+        canvas.render(systemGive: triangle)
+        canvas.render(systemGive: koch2)
+        canvas.render(systemGive: koch1)
     }
     
     // Respond to the mouseDown event
